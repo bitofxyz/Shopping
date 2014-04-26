@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Shopping</title>
+    <link href="../../bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+</head>
+<body class="container" ng-controller="CartController">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="page-header">
+                <h1>Shopping Cart</h1>
+            </div>
+
+            <div>
+                <table class="table table-hover">
+                    <tr ng-repeat="product in products">
+                        <td>{{product.title}}</td>
+                        <td><input ng-model='product.quantity'></td>
+                        <td><span>{{product.price | currency}}</span></td>
+                        <td><span>{{product.price * product.quantity | currency}}</span></td>
+                        <td><button class="btn btn-success" ng-click="remove($index)">Remove</button></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../bower_components/angular/angular.js"></script>
+    <script src="../controllers/controllers.js"></script>
+</body>
+</html>
